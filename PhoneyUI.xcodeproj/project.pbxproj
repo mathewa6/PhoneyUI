@@ -286,6 +286,7 @@
 				97D857BB1CDC2D990010953B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
