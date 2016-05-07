@@ -12,15 +12,19 @@ class ViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     @IBOutlet var display: UILabel!
+    var animator: UIDynamicAnimator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        let blurEffect = UIBlurEffect(style: .Light)
-//        let blurView = UIVisualEffectView(effect: blurEffect)
-//        blurView.frame = button.bounds
-//        button.addSubview(blurView)
+        animator = UIDynamicAnimator(referenceView: self.view)
+        let gravity = UIGravityBehavior(items: [self.button])
+        animator.addBehavior(gravity)
+        
+        let collision = UICollisionBehavior(items: [self.button])
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +52,10 @@ class PHButton: UIButton {
         self.setupLook()
     }
     
+    convenience init() {
+        self.init(frame: CGRect.zero)
+    }
+    
     func setupLook() {
         self.layer.cornerRadius = self.bounds.size.width/2
         self.layer.borderWidth = 3
@@ -58,6 +66,7 @@ class PHButton: UIButton {
     }
 }
 
+// Use an extension because we want every subclass of UIButton to exhibit the same behaviour. But is subclassing UIButton legal?
 extension UIButton {
     override public var highlighted: Bool {
         get {
