@@ -15,11 +15,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         button.layer.cornerRadius = button.bounds.size.width/2
         button.layer.borderWidth = 3
         button.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
         button.clipsToBounds = true
-//        button.backgroundColor = UIColor.whiteColor()
         
 //        let blurEffect = UIBlurEffect(style: .Light)
 //        let blurView = UIVisualEffectView(effect: blurEffect)
@@ -42,16 +42,14 @@ extension UIButton {
         }
         set {
             if newValue {
-                UIView.animateWithDuration(0.3, animations: {
-                    self.layer.borderColor = UIColor.clearColor().CGColor
-                    self.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
-                })
+                self.layer.borderColor = UIColor.clearColor().CGColor
+                self.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
             }
             else {
-                UIView.animateWithDuration(0.3, animations: {
-                    self.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
+                UIView.animateWithDuration(0.25, delay: 0.0, options: .AllowUserInteraction, animations: {
                     self.layer.backgroundColor = UIColor.clearColor().CGColor
-                })
+                    self.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
+                    }, completion: nil)
             }
             super.highlighted = newValue
         }
