@@ -11,15 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
+    @IBOutlet var display: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        button.layer.cornerRadius = button.bounds.size.width/2
-        button.layer.borderWidth = 3
-        button.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
-        button.clipsToBounds = true
         
 //        let blurEffect = UIBlurEffect(style: .Light)
 //        let blurView = UIVisualEffectView(effect: blurEffect)
@@ -32,7 +28,34 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pressed(sender: UIButton) {
+        if let text = sender.titleLabel?.text {
+            display.text = text
+        }
+    }
 
+}
+
+@IBDesignable
+class PHButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupLook()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.setupLook()
+    }
+    
+    func setupLook() {
+        self.layer.cornerRadius = self.bounds.size.width/2
+        self.layer.borderWidth = 3
+        self.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
+        self.clipsToBounds = true
+        self.titleLabel?.font = UIFont.systemFontOfSize(42)
+        self.titleLabel?.textAlignment = .Center
+    }
 }
 
 extension UIButton {

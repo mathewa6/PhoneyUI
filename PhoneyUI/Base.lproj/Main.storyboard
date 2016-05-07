@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,18 +18,123 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JB-gw-RWB">
-                                <rect key="frame" x="240" y="240" width="120" height="120"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFU-kU-MYo">
+                                <rect key="frame" x="20" y="28" width="560" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Button">
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JB-gw-RWB" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="20" y="61" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2xK-TD-Bkg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-s7-GQ8" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="118" y="61" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bbx-YO-znV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3B-bC-qca" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="216" y="61" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="3">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TJU-xQ-YmP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-yu-IaW" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="20" y="159" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gM8-kY-TCx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8H-jW-8h0" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="118" y="159" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="5">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bh-zW-ewc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHF-gw-EsQ" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="216" y="159" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="6">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NLm-9N-MOb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWq-Kh-zDG" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="20" y="257" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="7">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fQh-IR-I5w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjZ-4f-7kF" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="118" y="257" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="8">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yr5-nE-tRS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-49-c7Y" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="216" y="257" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="9">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rbr-0R-xjD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUy-tz-TmB" customClass="PHButton" customModule="PhoneyUI" customModuleProvider="target">
+                                <rect key="frame" x="118" y="355" width="90" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KmU-3y-cZA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.73333333329999995" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FFU-kU-MYo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AHr-8W-QPt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FFU-kU-MYo" secondAttribute="trailing" id="ahW-4T-BUc"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="FFU-kU-MYo" secondAttribute="leading" id="k4K-AI-zry"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="5JB-gw-RWB" id="kTp-qe-ZPN"/>
+                        <outlet property="display" destination="FFU-kU-MYo" id="lH7-zt-eTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
