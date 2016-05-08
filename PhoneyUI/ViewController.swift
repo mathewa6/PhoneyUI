@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var button: UIButton!
     @IBOutlet var display: UILabel!
+    @IBOutlet var allButtons: [PHButton]!
     var animator: UIDynamicAnimator!
     
     override func viewDidLoad() {
@@ -19,10 +20,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         animator = UIDynamicAnimator(referenceView: self.view)
-        let gravity = UIGravityBehavior(items: [self.button])
+        let gravity = UIGravityBehavior(items: self.allButtons)
         animator.addBehavior(gravity)
         
-        let collision = UICollisionBehavior(items: [self.button])
+        let collision = UICollisionBehavior(items: self.allButtons)
         collision.translatesReferenceBoundsIntoBoundary = true
         animator.addBehavior(collision)
     }
