@@ -20,8 +20,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         animator = UIDynamicAnimator(referenceView: self.view)
-        let gravity = UIGravityBehavior(items: self.allButtons)
-        animator.addBehavior(gravity)
+//        let gravity = UIGravityBehavior(items: self.allButtons)
+//        animator.addBehavior(gravity)
+        
+        let field = UIFieldBehavior.radialGravityFieldWithPosition(self.view.center)
+        field.strength = 3.0
+        for button in self.allButtons {
+            field.addItem(button)
+        }
+        animator.addBehavior(field)
         
         let collision = UICollisionBehavior(items: self.allButtons)
         collision.translatesReferenceBoundsIntoBoundary = true
@@ -59,7 +66,7 @@ class PHButton: UIButton {
     
     func setupLook() {
         self.layer.cornerRadius = self.bounds.size.width/2
-        self.layer.borderWidth = 3
+        self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
         self.clipsToBounds = true
         self.titleLabel?.font = UIFont.systemFontOfSize(42)
