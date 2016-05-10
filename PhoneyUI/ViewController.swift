@@ -20,15 +20,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         animator = UIDynamicAnimator(referenceView: self.view)
-//        let gravity = UIGravityBehavior(items: self.allButtons)
-//        animator.addBehavior(gravity)
+//        animator.setValue(true, forKey: "debugEnabled")
         
-        let field = UIFieldBehavior.radialGravityFieldWithPosition(self.view.center)
-        field.strength = 3.0
+        let field = UIFieldBehavior.vortexField()
+        field.strength = 0.5
+        field.position = self.view.center
         for button in self.allButtons {
             field.addItem(button)
         }
         animator.addBehavior(field)
+        let grav = UIFieldBehavior.radialGravityFieldWithPosition(self.view.center)
+        grav.strength = 1
+        for button in self.allButtons {
+            grav.addItem(button)
+        }
+        animator.addBehavior(grav)
         
         let collision = UICollisionBehavior(items: self.allButtons)
         collision.translatesReferenceBoundsIntoBoundary = true
@@ -50,6 +56,11 @@ class ViewController: UIViewController {
 
 @IBDesignable
 class PHButton: UIButton {
+    //ONLY needed for collisions in UIDynamics.
+    override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
+        return .Ellipse
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupLook()
@@ -64,9 +75,13 @@ class PHButton: UIButton {
         self.init(frame: CGRect.zero)
     }
     
-    func setupLook() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         self.layer.cornerRadius = self.bounds.size.width/2
-        self.layer.borderWidth = 2
+    }
+    
+    func setupLook() {
+        self.layer.borderWidth = 2.5
         self.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.5).CGColor
         self.clipsToBounds = true
         self.titleLabel?.font = UIFont.systemFontOfSize(42)
